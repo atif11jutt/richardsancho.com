@@ -48,64 +48,6 @@ tl_intro.play();
 
 
 
-	[...document.querySelectorAll('.work_item')].forEach(function(item) {
-
-
-
-
-		var this_inner = item.querySelector('.work_item_inner');
-
-		var staggers = item.querySelectorAll('.stagger_body');
-
-
-
-
-		var tl02 = gsap.timeline({
-			paused: true
-		});
-		tl02.staggerFromTo(staggers, 1.0, {
-			y: '200%',
-			skewY: 10,
-			autoAlpha: 0
-		}, {
-			y: '0%',
-			skewY: 0,
-			autoAlpha: 1,
-			ease: Power4.easeOut
-		}, 0.3);
-
-		ScrollTrigger.create({
-			trigger: item,
-			start: "center bottom",
-			onEnter: () => tl02.play()
-		});
-
-		ScrollTrigger.create({
-			trigger: item,
-			start: "top bottom",
-			onLeaveBack: () => tl02.pause(0)
-		});
-
-
-
-
-		this_inner.addEventListener("mousemove", function() {
-
-			rotate_cursor.play();
-			show_cursor.play();
-
-		});
-
-
-
-		this_inner.addEventListener("mouseleave", function() {
-			rotate_cursor.pause();
-			show_cursor.reverse();
-
-		});
-
-
-	}); /*close forEach*/
 
 
 	gsap.ticker.fps(50);
@@ -114,36 +56,6 @@ tl_intro.play();
 
 
 //underline animations
-
-
-[...document.querySelectorAll('.underline_trigger')].forEach(function(item) {
-
-	var this_underline = item.querySelector('.underline');
-
-	item.addEventListener("mouseover", function() {
-
-		gsap.fromTo(this_underline, 0.4, {
-			width: 0
-		}, {width: "100%",
-			ease: Power4.easeOut,
-			overwrite: true});
-
-	});
-
-
-	item.addEventListener("mouseleave", function() {
-
-		gsap.to(this_underline, 0.4, {
-			width: "0%",
-			ease: Power4.easeOut,
-			overwrite: true
-		});
-
-	});
-
-
-
-}); /*close forEach*/
 
 
 
@@ -176,143 +88,6 @@ tl_transition01.timeScale(0.5);
 
 
 
-var info_link = document.querySelector('.info-link');
-info_link.addEventListener('click', function() {
-
-	event.stopPropagation();
-
-	tl_transition01.play();
-
-	setTimeout(function() {
-		window.location.href = 'info.html';
-	}, 1000);
-
-
-
-});
-
-
-
-
-var medium_homepages_link = document.querySelector('.medium-homepages-link');
-medium_homepages_link.addEventListener('click', function() {
-
-	tl_transition01.play();
-
-	setTimeout(function() {
-		window.location.href = 'medium-homepages.html';
-	}, 1000);
-
-
-
-});
-
-
-
-var medium_brand_redesign_link = document.querySelector('.medium-brand-redesign-link');
-medium_brand_redesign_link.addEventListener('click', function() {
-
-	tl_transition01.play();
-
-	setTimeout(function() {
-		window.location.href = 'medium-brand-redesign.html';
-	}, 1000);
-
-
-
-});
-
-
-
-var new_yorker_documentary_link = document.querySelector('.new-yorker-documentary-link');
-new_yorker_documentary_link.addEventListener('click', function() {
-
-	tl_transition01.play();
-
-	setTimeout(function() {
-		window.location.href = 'new-yorker-documentary.html';
-	}, 1000);
-
-
-
-});
-
-
-
-var new_yorker_cannabis_link = document.querySelector('.new-yorker-cannabis-link');
-new_yorker_cannabis_link.addEventListener('click', function() {
-
-	tl_transition01.play();
-
-	setTimeout(function() {
-		window.location.href = 'new-yorker-california-cannabis.html';
-	}, 1000);
-
-
-
-});
-
-
-
-
-var new_yorker_moon_hours_link = document.querySelector('.new-yorker-moon-hours-link');
-new_yorker_moon_hours_link.addEventListener('click', function() {
-
-	tl_transition01.play();
-
-	setTimeout(function() {
-		window.location.href = 'new-yorker-moon-hours.html';
-	}, 1000);
-
-
-
-});
-
-
-
-var new_yorker_la_dreaming_link = document.querySelector('.new-yorker-la-dreaming-link');
-new_yorker_la_dreaming_link.addEventListener('click', function() {
-
-	tl_transition01.play();
-
-	setTimeout(function() {
-		window.location.href = 'new-yorker-la-dreaming.html';
-	}, 1000);
-
-
-
-});
-
-
-
-
-var new_yorker_touchstones_link = document.querySelector('.new-yorker-touchstones-link');
-new_yorker_touchstones_link.addEventListener('click', function() {
-
-	tl_transition01.play();
-
-	setTimeout(function() {
-		window.location.href = 'new-yorker-touchstones.html';
-	}, 1000);
-
-
-
-});
-
-
-var mtv_news_link = document.querySelector('.mtv-news-link');
-mtv_news_link.addEventListener('click', function() {
-
-	tl_transition01.play();
-
-	setTimeout(function() {
-		window.location.href = 'mtv-news.html';
-	}, 1000);
-
-
-
-});
-
 
 
 
@@ -323,18 +98,6 @@ gsap.set(".cursor", {
 
 
 
-
-var work_button = document.querySelector('.work_button');
-
-
-work_button.addEventListener('click', function() {
-	event.stopPropagation();
-	gsap.to(window, {
-		duration: 0.5,
-		scrollTo: '.work_section',
-		ease: Circ.easeOut
-	});
-});
 
 
 
@@ -630,15 +393,7 @@ show_cursor.to('.cursor', 0.3, {
 window.addEventListener("scroll", function() {
 	show_cursor.reverse();
 });
-		var work_section = document.querySelector('.work_section');
-		work_section.addEventListener('mousemove', e => {
-		gsap.to(".cursor", {
-			x: e.pageX - 60,
-			y: e.pageY - 60,
-			ease: Power4.easeOut
-		});
-	});
-		
+
 
 		
 		
